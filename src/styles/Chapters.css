@@ -1,0 +1,136 @@
+.chapters-page {
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── HERO ── */
+.chapters-page__hero {
+  padding: 5rem 6vw 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(78, 205, 196, 0.08);
+}
+
+.chapters-page__title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  color: var(--cyan-bright);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.chapters-page__sub {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 50ch;
+}
+
+/* ── CONTENT ── */
+.chapters-page__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 6vw 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* ── ARC ── */
+.arc__header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.arc__label {
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--orange-soft);
+  white-space: nowrap;
+}
+
+.arc__title {
+  font-size: 1.5rem;
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+.arc__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(78, 205, 196, 0.2), transparent);
+}
+
+/* ── CHAPTER CARDS ── */
+.arc__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.ch-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(78, 205, 196, 0.1);
+  border-radius: 3px;
+  background: rgba(13, 22, 40, 0.5);
+  backdrop-filter: blur(8px);
+  transition: border-color 0.25s, transform 0.25s, background 0.25s;
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.ch-card:hover {
+  border-color: rgba(78, 205, 196, 0.35);
+  background: rgba(13, 22, 40, 0.8);
+  transform: translateX(4px);
+}
+
+.ch-card__num {
+  font-family: var(--font-title);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--cyan);
+  opacity: 0.7;
+  min-width: 32px;
+}
+
+.ch-card__title {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.ch-card__arrow {
+  color: var(--cyan);
+  opacity: 0.4;
+  font-size: 1rem;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.ch-card:hover .ch-card__arrow {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+@media (max-width: 600px) {
+  .arc__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chapters-page__coming {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(78, 205, 196, 0.08);
+}

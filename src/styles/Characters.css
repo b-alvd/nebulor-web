@@ -1,0 +1,236 @@
+/* La page prend tout l'écran, le footer/navbar sont par-dessus */
+.characters-page {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+/* ── NAV LATÉRALE ── */
+.char-nav {
+  position: fixed;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: flex-end;
+}
+
+.char-nav__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0.15rem 0;
+  cursor: none;
+  direction: ltr;
+}
+
+.char-nav__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 0.25s, transform 0.25s;
+  flex-shrink: 0;
+  order: 2;
+}
+
+.char-nav__item--active .char-nav__dot {
+  transform: scale(1.6);
+}
+
+.char-nav__name {
+  font-family: var(--font-ui);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity 0.2s, transform 0.2s, color 0.2s;
+  white-space: nowrap;
+  order: 1;
+}
+
+.char-nav__item:hover .char-nav__name,
+.char-nav__item--active .char-nav__name {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--accent);
+}
+
+/* ── SLIDES CONTAINER ── */
+.char-slides {
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.char-slides::-webkit-scrollbar { display: none; }
+
+.char-slide {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+/* ── VISUEL ── */
+.char-slide__visual {
+  position: relative;
+  background: rgba(9, 13, 26, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  order: 0;
+}
+
+.char-slide__visual--right {
+  order: 1;
+}
+
+.char-slide__placeholder {
+  font-family: var(--font-title);
+  font-size: 14rem;
+  color: rgba(255, 255, 255, 0.04);
+  user-select: none;
+  position: relative;
+  z-index: 1;
+  line-height: 1;
+}
+
+.char-slide__glow {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.12;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/* ── CONTENU ── */
+.char-slide__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 5vw;
+  position: relative;
+  order: 1;
+}
+
+.char-slide__content--left {
+  order: 0;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.char-slide__rang {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 2px;
+  width: fit-content;
+  margin-bottom: 1rem;
+}
+
+.char-slide__content--left .char-slide__rang {
+  align-self: flex-end;
+}
+
+.char-slide__name {
+  font-family: var(--font-title);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  color: var(--text-main);
+  line-height: 1.05;
+  margin-bottom: 2.5rem;
+}
+
+.char-slide__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.char-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.char-stat__label {
+  font-family: var(--font-ui);
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.char-stat__value {
+  font-size: 1rem;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+.char-stat--spec .char-stat__value {
+  color: #c084fc;
+  font-style: italic;
+}
+
+.char-slide__index {
+  position: absolute;
+  bottom: 3rem;
+  right: 5vw;
+  font-family: var(--font-title);
+  font-size: 6rem;
+  opacity: 0.04;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
+.char-slide__content--left .char-slide__index {
+  right: auto;
+  left: 5vw;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .char-nav { display: none; }
+
+  .char-slide {
+    grid-template-columns: 1fr;
+    grid-template-rows: 40% 60%;
+    height: 100%;
+  }
+
+  .char-slide__visual,
+  .char-slide__visual--right { order: 0; }
+
+  .char-slide__content,
+  .char-slide__content--left {
+    order: 1;
+    align-items: flex-start;
+    text-align: left;
+    padding: 2rem;
+  }
+
+  .char-slide__content--left .char-slide__rang { align-self: flex-start; }
+  .char-slide__placeholder { font-size: 7rem; }
+  .char-slide__name { font-size: 2.5rem; margin-bottom: 1.5rem; }
+}

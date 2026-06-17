@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
+
+:root {
+  /* Palette extraite de la cover */
+  --void:        #050810;
+  --deep:        #090d1a;
+  --nebula-dark: #0d1628;
+  --cyan:        #4ecdc4;
+  --cyan-bright: #7ef7f0;
+  --cyan-glow:   rgba(78, 205, 196, 0.15);
+  --orange:      #e8622a;
+  --orange-soft: #d4874a;
+  --violet:      #8b5cf6;
+  --violet-dark: #4c1d95;
+  --pink:        #c084fc;
+  --star:        #ffffff;
+  --text-main:   #e8e4f0;
+  --text-muted:  #7a748a;
+  --hair-black:  #0a0808;
+
+  /* Typographie */
+  --font-title:  'Cinzel Decorative', serif;   /* Titres principaux uniquement */
+  --font-body:   'Montserrat', sans-serif;      /* Corps de texte */
+  --font-ui:     'Montserrat', sans-serif;      /* Nav, labels, boutons */
+
+  /* Spacing */
+  --nav-h: 72px;
+}

@@ -1,0 +1,104 @@
+@import './variables.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--void);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: none;
+  isolation: isolate;
+}
+
+/* Force le curseur natif à disparaître partout, y compris sur les éléments interactifs */
+*, a, button, input, label, select, textarea, [role="button"] {
+  cursor: none !important;
+}
+
+@media (pointer: coarse) {
+  *, a, button, input, label, select, textarea, [role="button"] {
+    cursor: auto !important;
+  }
+  .cursor__dot,
+  .cursor__ring {
+    display: none !important;
+  }
+}
+
+/* Curseur custom */
+.cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+}
+.cursor__dot {
+  width: 6px;
+  height: 6px;
+  background: var(--cyan-bright);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s;
+  box-shadow: 0 0 8px var(--cyan-bright), 0 0 20px var(--cyan);
+  z-index: 999999;
+  pointer-events: none;
+}
+.cursor__ring {
+  width: 32px;
+  height: 32px;
+  max-width: 42px;
+  max-height: 42px;
+  border: 1px solid rgba(78, 205, 196, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s, border-color 0.2s;
+  z-index: 999998;
+  pointer-events: none;
+}
+body:hover .cursor__ring { opacity: 1; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-title);
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--violet);
+  border-radius: 2px;
+}
+
+/* Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
