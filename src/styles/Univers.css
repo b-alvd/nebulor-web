@@ -1,0 +1,121 @@
+.univers-page {
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  position: relative;
+  z-index: 1;
+}
+
+.univers-page__hero {
+  padding: 5rem 6vw 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(78, 205, 196, 0.08);
+}
+
+.univers-page__title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  color: var(--cyan-bright);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.univers-page__sub {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 50ch;
+}
+
+.univers-page__grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 6vw 8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.univers-card {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  background: rgba(13, 22, 40, 0.5);
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.univers-card:hover {
+  border-color: var(--card-color, var(--cyan));
+  transform: translateY(-4px);
+}
+
+.univers-card__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 0% 50%, color-mix(in srgb, var(--card-color, var(--cyan)) 8%, transparent), transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.univers-card:hover .univers-card__glow {
+  opacity: 1;
+}
+
+.univers-card__icon {
+  font-size: 2rem;
+  color: var(--card-color, var(--cyan));
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.univers-card__body {
+  flex: 1;
+}
+
+.univers-card__title {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  margin-bottom: 0.35rem;
+  color: var(--text-main);
+}
+
+.univers-card__desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.univers-card__count {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--card-color, var(--cyan));
+  opacity: 0.7;
+}
+
+.univers-card__arrow {
+  font-size: 1.2rem;
+  color: var(--card-color, var(--cyan));
+  opacity: 0.4;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.univers-card:hover .univers-card__arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+@media (max-width: 600px) {
+  .univers-page__grid {
+    grid-template-columns: 1fr;
+  }
+}

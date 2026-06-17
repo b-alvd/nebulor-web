@@ -1,10 +1,6 @@
-/* La page prend tout l'écran, le footer/navbar sont par-dessus */
+/* Wrapper animable - pas de position fixed ici */
 .characters-page {
-  position: fixed;
-  top: var(--nav-h);
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
   z-index: 1;
 }
 
@@ -19,6 +15,7 @@
   flex-direction: column;
   gap: 0.4rem;
   align-items: flex-end;
+  animation: fadeInPage 0.6s ease forwards;
 }
 
 .char-nav__item {
@@ -67,14 +64,20 @@
 
 /* ── SLIDES CONTAINER ── */
 .char-slides {
-  height: 100%;
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
+  animation: fadeInPage 0.6s ease forwards;
 }
 .char-slides::-webkit-scrollbar { display: none; }
 
+/* ── SLIDE ── */
 .char-slide {
   scroll-snap-align: start;
   scroll-snap-stop: always;
@@ -233,4 +236,9 @@
   .char-slide__content--left .char-slide__rang { align-self: flex-start; }
   .char-slide__placeholder { font-size: 7rem; }
   .char-slide__name { font-size: 2.5rem; margin-bottom: 1.5rem; }
+}
+
+@keyframes fadeInPage {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }

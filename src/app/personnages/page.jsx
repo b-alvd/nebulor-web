@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import '@/styles/Characters.css';
 
 const CHARACTERS = [
@@ -66,7 +67,12 @@ export default function Characters() {
   };
 
   return (
-    <div className="characters-page">
+    <motion.div
+      className="characters-page"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
       <nav className="char-nav">
         {CHARACTERS.map((c, i) => {
           const s = getRangStyle(c.rang);
@@ -125,6 +131,6 @@ export default function Characters() {
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 }

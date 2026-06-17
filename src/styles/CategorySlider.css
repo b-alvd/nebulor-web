@@ -1,0 +1,39 @@
+.category-back {
+  position: fixed;
+  top: calc(var(--nav-h) + 1rem);
+  left: 1.5rem;
+  z-index: 50;
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  background: rgba(5, 8, 16, 0.6);
+  padding: 0.4rem 0.8rem;
+  border-radius: 2px;
+  border: 1px solid rgba(78, 205, 196, 0.1);
+}
+
+.category-back:hover { color: var(--cyan); }
+
+.category-loading {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.category-loading__spinner {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(78, 205, 196, 0.2);
+  border-top: 1px solid #4ecdc4;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

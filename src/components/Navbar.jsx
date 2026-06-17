@@ -9,7 +9,7 @@ import '@/styles/Navbar.css';
 const NAV_LINKS = [
   { to: '/',            label: 'Accueil' },
   { to: '/chapitres',   label: 'Chapitres' },
-  { to: '/personnages', label: 'Personnages' },
+  { to: '/univers',     label: 'Univers' },
   { to: '/boutique',    label: 'Boutique' },
 ];
 
