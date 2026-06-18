@@ -430,3 +430,15 @@
   .admin-layout { grid-template-columns: 1fr; }
   .admin-form { position: static; }
 }
+
+.admin-login__error {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  color: var(--orange-soft);
+  background: rgba(232, 98, 42, 0.08);
+  border: 1px solid rgba(232, 98, 42, 0.2);
+  border-radius: 2px;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  width: 100%;
+}

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import '@/styles/Characters.css';
 import '@/styles/CategorySlider.css';
 
 import { use } from 'react';
@@ -87,13 +88,19 @@ export default function CategoryPage({ params }) {
               className="char-slide"
               ref={el => { slidesRef.current[i] = el; }}
             >
-              <div className={`char-slide__visual ${!isEven ? 'char-slide__visual--right' : ''}`}>
+              <div className={`char-slide__visual ${!isEven ? 'char-slide__visual--right' : ''}`} style={{ position: 'relative' }}>
                 {entry.image_url ? (
-                  <Image
+                  <img
                     src={entry.image_url}
                     alt={entry.name}
-                    fill
-                    style={{ objectFit: 'cover' }}
+                    style={{ 
+                      width: '100%', 
+                      height: '100%', 
+                      objectFit: 'cover',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                    }}
                   />
                 ) : (
                   <div className="char-slide__placeholder">{entry.name[0]}</div>

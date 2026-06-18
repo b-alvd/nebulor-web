@@ -1,26 +1,5 @@
-# dependencies
-/node_modules
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# env
-.env
+node_modules
+.next
 .env.local
 .env.prod
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# vercel
-.vercel
-
-# misc
-.DS_Store
-*.pem
+/public/uploads

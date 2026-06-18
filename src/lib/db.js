@@ -1,19 +1,19 @@
+import 'server-only';
 import { createClient } from '@libsql/client';
 
-let _db = null;
+let client = null;
 
-export function getDb() {
-  if (!_db) {
-    _db = createClient({
+function getClient() {
+  if (!client) {
+    client = createClient({
       url: process.env.TURSO_DATABASE_URL,
       authToken: process.env.TURSO_AUTH_TOKEN,
     });
   }
-  return _db;
+  return client;
 }
 
-export const db = new Proxy({}, {
-  get(_, prop) {
-    return (...args) => getDb()[prop](...args);
-  }
-});
+export const db = {
+  execute: (...args) => getClient().execute(...args),
+  batch: (...args) => getClient().batch(...args),
+};

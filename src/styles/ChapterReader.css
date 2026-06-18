@@ -1,0 +1,106 @@
+.reader-page {
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  background: #0a0a0a;
+  position: relative;
+  z-index: 1;
+}
+
+.reader-header {
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: transparent;
+  pointer-events: none;
+}
+
+.reader-back {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  white-space: nowrap;
+  pointer-events: all;
+  background: rgba(5, 8, 16, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 0.45rem 1rem;
+  border-radius: 2px;
+}
+.reader-back:hover { color: var(--cyan); }
+
+.reader-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  background: rgba(5, 8, 16, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 0.45rem 1.25rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.reader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 6rem;
+}
+
+.reader-image {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+}
+
+.reader-no-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 8rem 2rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.reader-webtoon {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  transition: opacity 0.2s;
+  pointer-events: all;
+}
+.reader-webtoon:hover { opacity: 0.7; }
+
+.reader-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reader-loading__spinner {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(78, 205, 196, 0.2);
+  border-top: 1px solid #4ecdc4;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

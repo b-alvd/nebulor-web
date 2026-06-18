@@ -11,32 +11,24 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     }),
   ],
   callbacks: {
-    authorized({ auth, request }) {
-      const isAdminRoute = request.nextUrl.pathname.startsWith('/admin');
-      const isLoginPage = request.nextUrl.pathname === '/admin/login';
-      const isAuthenticated = !!auth;
-
-      if (isAdminRoute && !isLoginPage && !isAuthenticated) return false;
-      return true;
-    },
     async signIn({ profile }) {
-      const result = await db.execute({
-        sql: 'SELECT id FROM admins WHERE discord_id = ?',
-        args: [profile.id],
-      });
-      return result.rows.length > 0;
-    },
-    async session({ session, token }) {
-      if (token?.discordId) {
-        session.user.discordId = token.discordId;
+      try {
+        const result = await db.execute({
+          sql: 'SELECT id FROM admins WHERE discord_id = ?',
+          args: [profile.id],
+        });
+        return result.rows.length > 0;
+      } catch {
+        return false;
       }
-      return session;
     },
     async jwt({ token, profile }) {
-      if (profile) {
-        token.discordId = profile.id;
-      }
+      if (profile) token.discordId = profile.id;
       return token;
+    },
+    async session({ session, token }) {
+      if (token?.discordId) session.user.discordId = token.discordId;
+      return session;
     },
   },
   pages: {

@@ -5,6 +5,9 @@ import { usePathname } from 'next/navigation';
 
 export default function PageTransition({ children }) {
   const pathname = usePathname();
+  const isFullscreen = pathname === '/personnages' || pathname.startsWith('/univers/');
+
+  if (isFullscreen) return <>{children}</>;
 
   return (
     <motion.div

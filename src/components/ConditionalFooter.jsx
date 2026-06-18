@@ -6,7 +6,8 @@ import ScrollTopButton from '@/components/ScrollTopButton';
 
 export default function ConditionalFooter() {
   const pathname = usePathname();
-  if (pathname === '/personnages') return null;
+  const isFullscreen = pathname === '/personnages' || pathname.startsWith('/univers/');
+  if (isFullscreen) return null;
   return (
     <>
       <Footer />

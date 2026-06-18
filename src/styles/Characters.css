@@ -73,7 +73,6 @@
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  animation: fadeInPage 0.6s ease forwards;
 }
 .char-slides::-webkit-scrollbar { display: none; }
 
@@ -81,7 +80,7 @@
 .char-slide {
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  height: 100%;
+  height: calc(100vh - var(--nav-h));
   display: grid;
   grid-template-columns: 1fr 1fr;
   overflow: hidden;
