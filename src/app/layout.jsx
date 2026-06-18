@@ -7,7 +7,7 @@ import '@/styles/variables.css';
 import '@/styles/globals.css';
 
 export const metadata = {
-  title: 'Nebulor — Webtoon',
+  title: 'Nebulor',
   description: "La prophétie s'éveille. Et avec elle, tout ce qui dormait.",
   openGraph: {
     title: 'Nebulor',

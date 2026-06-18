@@ -21,7 +21,7 @@ export default async function UniversPage() {
         <span className="section-label">Découvrir</span>
         <h1 className="univers-page__title">L&apos;Univers Nebulor</h1>
         <p className="univers-page__sub">
-          Plonge dans le monde de Nebulor — ses habitants, ses créatures, ses mystères.
+          Plonge dans le monde de Nebulor, ses habitants, ses créatures, ses mystères.
         </p>
       </div>
 

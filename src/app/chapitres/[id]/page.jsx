@@ -40,7 +40,7 @@ export default function ChapterReaderPage({ params }) {
             <img
               key={img.id}
               src={img.image_url}
-              alt={`${chapter.title} — page ${i + 1}`}
+              alt={`${chapter.title} - page ${i + 1}`}
               className="reader-image"
             />
           ))

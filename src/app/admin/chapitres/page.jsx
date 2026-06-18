@@ -84,7 +84,7 @@ export default function AdminChapters() {
           {/* Gestion images du chapitre sélectionné */}
           {selectedChapter && (
             <div style={{ marginTop: '2rem', borderTop: '1px solid rgba(78,205,196,0.1)', paddingTop: '1.5rem' }}>
-              <h2 className="admin-form__title">Images — {selectedChapter.title}</h2>
+              <h2 className="admin-form__title">Images - {selectedChapter.title}</h2>
               <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>
                 {selectedChapter.images?.length || 0} image{selectedChapter.images?.length > 1 ? 's' : ''} · glisser pour réordonner
               </p>
