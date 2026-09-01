@@ -10,7 +10,17 @@ export function getAuthorizeUrl() {
   return `${DISCORD_API}/oauth2/authorize?${params.toString()}`;
 }
 
-export async function exchangeCode(code) {
+export function getForumAuthorizeUrl() {
+  const params = new URLSearchParams({
+    client_id: process.env.DISCORD_CLIENT_ID,
+    redirect_uri: process.env.DISCORD_FORUM_REDIRECT_URI,
+    response_type: 'code',
+    scope: 'identify',
+  });
+  return `${DISCORD_API}/oauth2/authorize?${params.toString()}`;
+}
+
+export async function exchangeCode(code, redirectUri = process.env.DISCORD_REDIRECT_URI) {
   const res = await fetch(`${DISCORD_API}/oauth2/token`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -19,7 +29,7 @@ export async function exchangeCode(code) {
       client_secret: process.env.DISCORD_CLIENT_SECRET,
       grant_type: 'authorization_code',
       code,
-      redirect_uri: process.env.DISCORD_REDIRECT_URI,
+      redirect_uri: redirectUri,
     }),
   });
   if (!res.ok) throw new Error(`Discord token error: ${await res.text()}`);

@@ -1,0 +1,222 @@
+.profil-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  border: 1px solid rgba(78, 205, 196, 0.12);
+  border-radius: 3px;
+  background: rgba(13, 22, 40, 0.5);
+  backdrop-filter: blur(8px);
+  margin-bottom: 1.5rem;
+}
+
+.profil-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(78, 205, 196, 0.15);
+  border: 2px solid rgba(78, 205, 196, 0.3);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+
+.profil-header__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.profil-header__name {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--cyan-bright);
+  margin: 0;
+}
+
+.profil-header__role {
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.profil-logout {
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  padding: 0.4rem 0.85rem;
+  margin-left: auto;
+  align-self: center;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.profil-logout:hover {
+  border-color: rgba(245, 100, 80, 0.5);
+  color: #f56450;
+  background: rgba(245, 100, 80, 0.06);
+}
+
+/* Stats */
+.profil-stats {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.profil-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1.25rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  background: rgba(13, 22, 40, 0.3);
+}
+
+.profil-stat__value {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  color: var(--cyan-bright);
+  line-height: 1;
+}
+
+.profil-stat__label {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Onglets */
+.profil-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 1.5rem;
+}
+
+.profil-tab {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.profil-tab:hover { color: var(--text-main); }
+
+.profil-tab--active {
+  color: var(--cyan);
+  border-bottom-color: var(--cyan);
+}
+
+/* Liste */
+.profil-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profil-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.profil-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  background: rgba(13, 22, 40, 0.3);
+  color: var(--text-main);
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.profil-item:hover {
+  border-color: var(--item-color, var(--cyan));
+  transform: translateX(4px);
+}
+
+.profil-item__icon {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.profil-item__title {
+  flex: 1;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profil-item__reply-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.profil-item__reply-thread {
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profil-item__reply-excerpt {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profil-item__tag {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.profil-item__date {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .profil-stats { gap: 0.5rem; }
+  .profil-item__tag,
+  .profil-item__date { display: none; }
+  .profil-header { gap: 1rem; }
+  .profil-avatar { width: 48px; height: 48px; font-size: 1.2rem; }
+}

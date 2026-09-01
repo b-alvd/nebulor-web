@@ -102,3 +102,48 @@ h1, h2, h3 {
   overflow: hidden;
   clip: rect(0,0,0,0);
 }
+
+/* ── BUTTONS (global) ── */
+.btn {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--violet) 100%);
+  color: var(--void);
+  font-weight: 700;
+  border: none;
+}
+.btn--primary:hover { box-shadow: 0 8px 32px rgba(78, 205, 196, 0.3); }
+
+.btn--ghost {
+  border: 1px solid rgba(78, 205, 196, 0.3);
+  color: var(--cyan);
+  background: transparent;
+}
+.btn--ghost:hover {
+  border-color: var(--cyan);
+  background: rgba(78, 205, 196, 0.05);
+}
+
+/* ── SECTION LABEL (global) ── */
+.section-label {
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  display: block;
+  margin-bottom: 0.75rem;
+}
